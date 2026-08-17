@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="favicon.png" type="image/png" sizes="64x64">
+  <title>Easy待辦</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="main-container">
+    <!-- 側邊欄 -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="logo">
+          <span class="logo-text">Easy 待辦</span>
+        </div>
+        <button id="theme-toggle" class="theme-toggle" title="切換主題">🌙</button>
+      </div>
+      
+      <div class="stats-card">
+        <div class="stat-item">
+          <div class="stat-number" id="total-count">0</div>
+          <div class="stat-label">全部任務</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" id="done-count">0</div>
+          <div class="stat-label">已完成</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" id="urgent-count">0</div>
+          <div class="stat-label">緊急</div>
+        </div>
+      </div>
+      
+      <div class="quick-actions">
+        <button id="export-btn" class="action-btn">💾 導出</button>
+        <button id="import-btn" class="action-btn">📂 導入</button>
+      </div>
+      
+      <div class="sidebar-footer">
+        <small>Ver.1.1.2</small>
+      </div>
+    </aside>
+    
+    <!-- 主要內容區 -->
+    <main class="content">
+      <div class="card">
+        <!-- 頂部區域 -->
+        <div class="top-section">
+          <div class="title-area">
+            <h1>🚀 我的任務</h1>
+            <p class="subtitle">管理你的日常計劃</p>
+          </div>
+          
+          <!-- 輸入區 -->
+          <div class="input-section">
+            <div class="input-group">
+              <input id="todo-input" type="text" class="todo-input" placeholder="✍️ 新增待辦事項..." />
+              <select id="priority-select" class="priority-select">
+                <option value="normal">一般</option>
+                <option value="high">比較急</option>
+                <option value="urgent">🔥 緊急</option>
+              </select>
+              <button id="add-btn" class="btn btn-primary">新增</button>
+            </div>
+            
+            <div class="search-box">
+              <input id="search-input" type="text" class="search-input" placeholder="🔍 搜尋..." />
+            </div>
+          </div>
+        </div>
+        
+        <!-- 篩選和排序區 -->
+        <div class="controls-section">
+          <div class="filter-group">
+            <button class="filter-btn active" data-filter="all">全部</button>
+            <button class="filter-btn" data-filter="pending">進行中</button>
+            <button class="filter-btn" data-filter="done">已完成</button>
+            <button class="filter-btn" data-filter="urgent">緊急</button>
+          </div>
+          
+          <div class="sort-options">
+            <span class="sort-label">排序:</span>
+            <button class="sort-btn active" data-sort="newest">最新</button>
+            <button class="sort-btn" data-sort="priority">優先級</button>
+            <button class="sort-btn" data-sort="alpha">字母</button>
+          </div>
+        </div>
+        
+        <!-- 待辦列表 -->
+        <div class="list-section">
+          <ul id="todo-list" class="todo-list"></ul>
+        </div>
+        
+        <!-- 底部操作 -->
+        <div class="bottom-actions">
+          <button id="clear-btn" class="btn btn-secondary">清空已完成</button>
+          <button id="delete-all-btn" class="btn btn-danger">清空全部</button>
+        </div>
+        
+        <div class="shortcuts">
+          <small>⭐ 快捷鍵: <kbd>Ctrl</kbd>+<kbd>Enter</kbd> 新增 &nbsp; <kbd>Del</kbd> 刪除</small>
+        </div>
+      </div>
+    </main>
+  </div>
+  
+  <input type="file" id="import-file" accept=".json" style="display: none;" />
+  <script src="script.js"></script>
+</body>
+</html>
