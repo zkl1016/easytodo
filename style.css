@@ -4,12 +4,12 @@
 
 :root {
   /* 彩色主題 */
-  --color-primary: #667eea;
-  --color-secondary: #764ba2;
+  --color-primary: #4d7cff;
+  --color-secondary: #7cc7ff;
   --color-success: #51cf66;
   --color-danger: #ff6b6b;
   --color-warning: #ffd43b;
-  --color-info: #4dabf7;
+  --color-info: #67b7ff;
   --color-accent1: #ff8c42;
   --color-accent2: #7bc043;
   --color-accent3: #ef476f;
@@ -17,19 +17,25 @@
   
   /* 背景和文字 */
   --bg-light: #ffffff;
-  --bg-sidebar: #f8f9ff;
-  --bg-hover: #f0f0f0;
+  --bg-sidebar: #edf5ff;
+  --bg-sidebar-strong: #dfeeff;
+  --bg-sidebar-soft: rgba(77, 124, 255, 0.1);
+  --bg-hover: #f0f2f8;
   --text-light: #2d3436;
-  --text-muted: #8f9ca0;
+  --text-muted: #6d8192;
   --text-ver: #ffffff;
   --text-dark: #2d3436;
-  --border-light: #e9ecef;
-  --border-color: #dee2e6;
+  --border-light: #dfeafc;
+  --border-color: #cfe0ff;
 }
 
 body.dark-mode {
+  --color-primary: #7aa2ff;
+  --color-secondary: #5ec9ff;
   --bg-light: #1a1a2e;
   --bg-sidebar: #16213e;
+  --bg-sidebar-strong: #1c2d4f;
+  --bg-sidebar-soft: rgba(122, 162, 255, 0.18);
   --bg-hover: #0f3460;
   --text-light: #eaeaea;
   --text-muted: #b8b8b8;
@@ -62,14 +68,19 @@ body.dark-mode {
 /* 側邊欄樣式 */
 .sidebar {
   width: 280px;
-  background: linear-gradient(180deg, var(--bg-sidebar) 0%, rgba(102, 126, 234, 0.05) 100%);
+  background: linear-gradient(180deg, var(--bg-sidebar) 0%, var(--bg-sidebar-strong) 42%, var(--bg-sidebar-soft) 100%);
   padding: 30px 25px;
   display: flex;
   flex-direction: column;
   gap: 25px;
-  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 8px 0 24px rgba(77, 124, 255, 0.12);
   transition: all 0.3s ease;
-  border-right: 2px solid var(--border-light);
+  border-right: 1px solid rgba(114, 150, 255, 0.2);
+}
+
+body.dark-mode .sidebar {
+  box-shadow: 8px 0 24px rgba(10, 14, 39, 0.45);
+  border-right-color: rgba(138, 162, 255, 0.2);
 }
 
 .sidebar-header {
@@ -144,20 +155,20 @@ body.dark-mode {
 }
 
 .stat-item {
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.12) 0%, rgba(118, 75, 162, 0.08) 100%);
+  background: linear-gradient(135deg, rgba(77, 124, 255, 0.1) 0%, rgba(106, 183, 255, 0.14) 100%);
   padding: 16px;
   border-radius: 14px;
   text-align: center;
-  border: 2px solid var(--border-light);
+  border: 1px solid rgba(77, 124, 255, 0.18);
   transition: all 0.3s ease;
-  box-shadow: 0 3px 10px rgba(102, 126, 234, 0.08);
+  box-shadow: 0 6px 16px rgba(77, 124, 255, 0.08);
 }
 
 .stat-item:hover {
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.18) 0%, rgba(118, 75, 162, 0.12) 100%);
+  background: linear-gradient(135deg, rgba(77, 124, 255, 0.18) 0%, rgba(106, 183, 255, 0.18) 100%);
   transform: translateY(-6px);
-  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.25);
-  border-color: var(--color-primary);
+  box-shadow: 0 10px 24px rgba(77, 124, 255, 0.18);
+  border-color: rgba(77, 124, 255, 0.38);
 }
 
 .stat-number {
@@ -202,11 +213,11 @@ body.dark-mode {
 }
 
 .action-btn:hover {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  background: linear-gradient(135deg, #4d7cff 0%, #63b9ff 100%);
   color: white;
   border-color: transparent;
   transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(102, 126, 234, 0.35);
+  box-shadow: 0 12px 22px rgba(77, 124, 255, 0.28);
 }
 
 .action-btn:active {
