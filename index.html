@@ -40,7 +40,7 @@
       </div>
       
       <div class="sidebar-footer">
-        <small>Ver.2.1.2</small>
+        <small><Ver class="2 1 4"></Ver></small>
       </div>
     </aside>
     
@@ -108,15 +108,16 @@
   </div>
   
   <input type="file" id="import-file" accept=".json" style="display: none;" />
-  <script src="script.js"></script>
-    <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js')
-          .then(reg => console.log('離線功能註冊成功！', reg))
-          .catch(err => console.error('離線功能註冊失敗：', err));
-      });
-    }
-  </script>
+<script src="script.js"></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      // 關鍵！這裡一定要加上點「.」變成相對路徑
+      navigator.serviceWorker.register('./sw.js')
+        .then(reg => console.log('離線功能註冊成功！', reg))
+        .catch(err => console.error('離線功能註冊失敗：', err));
+    });
+  }
+</script>
 </body>
 </html>
